@@ -1,0 +1,26 @@
+-- Create a store database
+
+CREATE TABLE store (id INTEGER PRIMARY KEY, name TEXT, quantity INTEGER, price INTEGER, sales INTEGER);
+
+INSERT INTO store VALUES (1, "T shirts",5, 5.99,3);
+INSERT INTO store VALUES (2, "Tank tops",5, 5.99,5);
+INSERT INTO store VALUES (3, "blouses",5, 20.99,4);
+INSERT INTO store VALUES (4, "jeans",5, 20.99,5);
+INSERT INTO store VALUES (5, "slacks",5, 20.99,3);
+INSERT INTO store VALUES (6, "boots",5, 20.99,5);
+INSERT INTO store VALUES (7, "sandals",5, 10.99,4);
+INSERT INTO store VALUES (8, "heels",5, 20.99,3);
+INSERT INTO store VALUES (9, "sneakers",5, 20.99,3);
+INSERT INTO store VALUES (10, "hats",5, 9.99,2);
+INSERT INTO store VALUES (11, "scarves",5, 10.99,1);
+INSERT INTO store VALUES (12, "necklaces",5, 1.99,3);
+INSERT INTO store VALUES (13, "rings",5, 1.99,5);
+INSERT INTO store VALUES (14, "anklets",5, 1.99,2);
+INSERT INTO store VALUES (15, "braclets",5, 1.99,5);
+
+--Display the database ordered by price
+SELECT * FROM store ORDER BY price decs;
+
+-- What is sum of sales?
+SELECT SUM (sales) FROM store;
+
