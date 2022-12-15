@@ -47,21 +47,29 @@ INSERT INTO marvels VALUES(24, "Venon", 78, "Neutral", "Male", 1.90, 118, "EUA",
 INSERT INTO marvels VALUES(25, "Juggernaut", 76, "Neutral", "Male", 2.87, 862, "EUA", 2, 7, 2, 7, 1, 4);
 INSERT INTO marvels VALUES(26, "Professor X", 58, "Good", "Male", 1.83, 86, "EUA", 5, 2, 2, 2, 5, 3);
 
-
+--Using Order by to see popularity by least to greatest 'asc'
 SELECT * FROM marvels ORDER BY popularity asc;
 
+-- Using max/min to show heights
 SELECT MAX(height_m) FROM marvels;
 
 SELECT min(height_m) FROM marvels;
 
+--Comparing Gender and alignment using AND
+
 SELECT * FROM marvels WHERE gender= 'Female' and alignment= 'Good';
 
+--Comparing gender and strength with OR
+
 SELECT * FROM marvels WHERE Gender= 'Female' or strength='4';
+
+--Using having to create an aggregate function
 
 SELECT name FROM marvels GROUP BY height_m HAVING  height_m > 1.5;
 
 SELECT name FROM marvels GROUP BY weight_kg HAVING weight_kg <100;
 
+--  Using the CASE expression to provide conditions to return values of durability
 SELECT name, durability,
 CASE
     WHEN durability > 5 THEN 'The durability is greater than 5'
