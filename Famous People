@@ -1,0 +1,68 @@
+/* Create table about the people and what they do here */
+CREATE TABLE singers (id INTEGER PRIMARY KEY, name TEXT, song TEXT, birth_year INTEGER);
+
+INSERT INTO singers VALUES (1, "Doja Cat", "say so", 1995);
+INSERT INTO singers VALUES (2, "Lauryn Hill", "Ex-Factor", 1975);
+INSERT INTO singers VALUES (3,"Frank Ocean", "Thinkin Bout You", 1987);
+INSERT INTO singers VALUES (4, "J.Cole", "Lost Ones", 1985);
+INSERT INTO singers VALUES (5,"Kendrick Lamar", "Swimming Pools", 1987);
+INSERT INTO singers VALUES (6, "SZA", "Supermodel", 1988);
+INSERT INTO singers VALUES (7, "Men I trust", "Show me How", 1993);
+INSERT INTO singers VALUES (8, "FKA Twigs", "Meta Angel", 1988);
+INSERT INTO singers VALUES (9, "Rauw Alejanro", "Todo De Ti", 1993);
+INSERT INTO singers VALUES (10, "Mitski", "Nobody", 1990);
+INSERT INTO singers VALUES (11, "Sade", "Is It a Crime?", 1959);
+INSERT INTO singers VALUES (12, "Mariah the Scientist", "Aura", 1997);
+INSERT INTO singers VALUES (13, "Childish Gambino", "RedBone", 1983);
+INSERT INTO singers VALUES (14, "Drake", "Best I Ever Had", 1986);
+INSERT INTO singers VALUES (15, "Mac Demarco", "Chamber of Reflectiom", 1990);
+
+CREATE TABLE birth_city(id INTEGER PRIMARY KEY, name TEXT, city TEXT);
+
+INSERT INTO Birth_city VALUES (1, "Doja Cat", "Los Angeles");
+INSERT INTO Birth_city VALUES (2, "Lauryn Hill", "Newark");
+INSERT INTO Birth_city VALUES (3,"Frank Ocean", "Long Beach");
+INSERT INTO Birth_city VALUES (4, "J.Cole", "Frankfurt");
+INSERT INTO Birth_city VALUES (5,"Kendrick Lamar", "Compton");
+INSERT INTO Birth_city VALUES (6, "SZA", "ST.louis");
+INSERT INTO Birth_city VALUES (7, "Men I trust", "Quebec");
+INSERT INTO Birth_city VALUES (8, "FKA Twigs", "Cheltenham");
+INSERT INTO Birth_city VALUES (9, "Rauw Alejanro", "San Juan");
+INSERT INTO Birth_city VALUES (10, "Mitski", "Mie");
+INSERT INTO Birth_city VALUES (11, "Sade", "Ibadan");
+INSERT INTO Birth_city VALUES (12, "Mariah the Scientist", "Atlanta");
+INSERT INTO Birth_city VALUES (13, "Childish Gambino", "Stone Mountain");
+INSERT INTO Birth_city VALUES (14, "Drake", "Toronto");
+INSERT INTO Birth_city VALUES (15, "Mac Demarco", "Duncan");
+
+// Joining tables to themselves using self joins//
+
+SELECT s.name, s.song, s.birth_year, b.city
+FROM singers s
+JOIN Birth_city b
+ON s.id=b.id;
+
+//Using self joins to group by name and order by year in asceding order//
+
+SELECT s.name, s.song, s.birth_year, b.city
+FROM singers s
+JOIN Birth_city b
+ON s.id=b.id
+GROUP BY s.name
+ORDER BY birth_year asc;
+
+//Using join and where to form a query that will result in one row//
+
+SELECT s.name, s.song, s.birth_year, b.city
+FROM singers s
+JOIN Birth_city b
+ON s.id=b.id
+WHERE s.name= 'Doja Cat';
+
+// Used Join and Where to form a query based on similiar birth years//
+
+SELECT s.name, s.song, s.birth_year, b.city
+FROM singers s
+JOIN Birth_city b
+ON s.id=b.id
+WHERE s.birth_year= '1988';
