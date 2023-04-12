@@ -43,3 +43,10 @@ SELECT track_name, artist_name, popularity
 FROM BIT_DB.spotifydata
 ORDER BY popularity desc
 LIMIT 10
+
+#Then determined longest song 
+SELECT track_name
+,artist_name
+,MAX (duration_MS)
+AS duration
+FROM BIT_DB.Spotifydata;
